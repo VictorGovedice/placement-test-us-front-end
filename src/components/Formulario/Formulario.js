@@ -29,7 +29,80 @@ function App() {
             <html>
             <head>
               <style>
-                /* Seus estilos */
+                body {
+                  font-family: Arial, sans-serif;
+                  background-color: #f5f5f5;
+                  color: #333;
+                  padding: 20px;
+                }
+                .logo {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 20px;
+                }
+                .iframe-container {
+                  margin-top: 20px;
+                }
+                .fetch-button {
+                  background-color: #0099FF;
+                  color: #fff;
+                  padding: 10px 20px;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  margin-top: 20px;
+                }
+                .fetch-button:hover {
+                  background-color: #007ACC;
+                }
+                .modal {
+                  display: none;
+                  position: fixed;
+                  z-index: 1;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  overflow: auto;
+                  background-color: rgba(0,0,0,0.4);
+                  justify-content: center;
+                  align-items: center;
+                }
+                .modal-content {
+                  background-color: #fff;
+                  margin: 15% auto;
+                  padding: 20px;
+                  border: 1px solid #888;
+                  border-radius: 10px;
+                  width: 80%;
+                  max-width: 500px;
+                }
+                .close-button {
+                  color: #aaa;
+                  float: right;
+                  font-size: 28px;
+                  font-weight: bold;
+                  cursor: pointer;
+                }
+                .close-button:hover,
+                .close-button:focus {
+                  color: black;
+                  text-decoration: none;
+                  cursor: pointer;
+                }
+                .share-button {
+                  background-color: #4CAF50;
+                  color: white;
+                  padding: 10px 20px;
+                  margin: 5px;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                }
+                .share-button:hover {
+                  background-color: #45a049;
+                }
               </style>
               <!-- Metatags Open Graph para compartilhamento no LinkedIn -->
               <meta property="og:title" content="Veja meus resultados no teste de nivelamento" />
@@ -48,7 +121,7 @@ function App() {
                 ${iframeHtml}
               </div>
               <button class="fetch-button" onclick="fetchCsvData('${email}')">Compartilhar resultados do meu teste</button>
-
+          
               <!-- Modal para exibir os resultados -->
               <div id="resultsModal" class="modal">
                 <div class="modal-content">
@@ -59,7 +132,7 @@ function App() {
                   <p id="quiz_cefr"></p>
                   <p id="quiz_score"></p>
                   <p id="vocab_score"></p>
-
+          
                   <!-- Botões de Compartilhamento -->
                   <div style="margin-top: 20px;">
                     <button class="share-button" onclick="shareLinkedIn()">Compartilhar no LinkedIn</button>
@@ -67,21 +140,21 @@ function App() {
                   </div>
                 </div>
               </div>
-
+          
               <script>
                 function fetchCsvData(userEmail) {
                   fetch('https://placement-test-us-back-end.onrender.com/api/baixar-csv')
                     .then(response => response.json())
                     .then(data => {
                       const user = data.find(record => record.email === userEmail);
-
+          
                       if (user) {
                         document.getElementById('fluency_score').textContent = 'Fluency Score: ' + user.fluency_score;
                         document.getElementById('pronunciation_score').textContent = 'Pronunciation Score: ' + user.pronunciation_score;
                         document.getElementById('quiz_cefr').textContent = 'Quiz CEFR: ' + user.quiz_cefr;
                         document.getElementById('quiz_score').textContent = 'Quiz Score: ' + user.quiz_score;
                         document.getElementById('vocab_score').textContent = 'Vocab Score: ' + user.vocab_score;
-
+          
                         document.getElementById('resultsModal').style.display = 'flex';
                       } else {
                         alert('Por favor, faça o teste para receber o seu nível de inglês.');
@@ -92,17 +165,17 @@ function App() {
                       alert('Erro ao buscar os dados CSV.');
                     });
                 }
-
+          
                 function closeModal() {
                   document.getElementById('resultsModal').style.display = 'none';
                 }
-
+          
                 // Função para compartilhar no LinkedIn
                 function shareLinkedIn() {
                   const linkedinUrl = \`https://www.linkedin.com/sharing/share-offsite/?url=\${encodeURIComponent(window.location.href)}&title=Veja meus resultados no teste de nivelamento&summary=Confira meu desempenho no teste de nivelamento realizado por ${nomeCompleto}\`;
                   window.open(linkedinUrl, '_blank');
                 }
-
+          
                 // Função para compartilhar no Facebook
                 function shareFacebook() {
                   const facebookUrl = \`https://www.facebook.com/sharer/sharer.php?u=\${encodeURIComponent(window.location.href)}\`;
@@ -114,6 +187,7 @@ function App() {
           `);
           newWindow.document.close();
           console.log('Documento criado');
+          
         } else {
           console.error('O JSON retornado não contém a propriedade "html"');
         }
@@ -126,7 +200,12 @@ function App() {
   };
 
   return (
+    
     <div className="form-container">
+      <div class="logo">
+        <img src="https://alumni.org.br/wp-content/uploads/2024/05/alumni_white.svg" alt="Alumni Logo" />
+        <img src="https://alumni.org.br/wp-content/uploads/2024/05/logoConsulado.png" alt="Consulado Logo" />
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="form">
         <div className="form-group">
           <input
