@@ -6,7 +6,7 @@ function App() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('http://localhost:3001/api/teste-nivelamento', {
+      const response = await fetch('https://placement-test-us-back-end.onrender.com/api/teste-nivelamento', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ function App() {
 
               <script>
                 function fetchCsvData(userEmail) {
-                  fetch('http://localhost:3001/api/baixar-csv')
+                  fetch('https://placement-test-us-back-end.onrender.com/api/baixar-csv')
                     .then(response => response.json())
                     .then(data => {
                       const user = data.find(record => record.email === userEmail);
