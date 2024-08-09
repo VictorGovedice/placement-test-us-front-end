@@ -203,7 +203,7 @@ function App() {
     
     <div className="form-container">
       <div class="logo">
-        <img src="https://alumni.org.br/wp-content/uploads/2024/05/alumni_white.svg" alt="Alumni Logo" />
+        <img src="https://alumni.org.br/wp-content/uploads/2024/05/alumni_white.svg" className='logo-lumni' alt="Alumni Logo" />
         <img src="https://alumni.org.br/wp-content/uploads/2024/05/logoConsulado.png" alt="Consulado Logo" />
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="form">
