@@ -22,97 +22,19 @@ function App() {
           const nomeCompleto = data.nomeCompleto;
           const email = data.email;
 
-          // Cria uma nova janela e escreve o conteúdo
-          const newWindow = window.open();
+          // Abre uma nova janela com a URL desejada
+          const newWindow = window.open('https://placement-test-us-front-end.vercel.app/results');
+          
           newWindow.document.write(`
             <html>
             <head>
               <style>
-                body {
-                  background-color: black;
-                  color: white;
-                  text-align: center;
-                  font-family: Arial, sans-serif;
-                }
-                .logo {
-                  display: flex;
-                  justify-content: center;
-                }
-                .logo img {
-                  margin: 0 5px;
-                }
-                .iframe-container {
-                  margin: 20px 0;
-                  width: 80%;
-                  height: 80%;
-                  margin: auto;
-                }
-                .fetch-button {
-                  margin-top: 20px;
-                  padding: 10px 20px;
-                  border: none;
-                  border-radius: 5px;
-                  background-color: #007BFF;
-                  color: white;
-                  font-size: 16px;
-                  cursor: pointer;
-                }
-                .fetch-button:hover {
-                  background-color: #0056b3;
-                }
-                /* Estilo para o modal */
-                .modal {
-                  display: none;
-                  position: fixed;
-                  z-index: 1;
-                  left: 0;
-                  top: 0;
-                  width: 100%;
-                  height: 100%;
-                  overflow: auto;
-                  background-color: rgba(0, 0, 0, 0.5);
-                  justify-content: center;
-                  align-items: center;
-                }
-                .modal-content {
-                  background-color: #333;
-                  padding: 20px;
-                  border-radius: 10px;
-                  width: 300px;
-                  text-align: left;
-                  color: white;
-                }
-                .close-button {
-                  color: #aaa;
-                  float: right;
-                  font-size: 28px;
-                  font-weight: bold;
-                  cursor: pointer;
-                }
-                .close-button:hover,
-                .close-button:focus {
-                  color: white;
-                  text-decoration: none;
-                  cursor: pointer;
-                }
-                .share-button {
-                  margin: 5px;
-                  padding: 10px 20px;
-                  border: none;
-                  border-radius: 5px;
-                  background-color: #007BFF;
-                  color: white;
-                  font-size: 16px;
-                  cursor: pointer;
-                }
-                .share-button:hover {
-                  background-color: #0056b3;
-                }
+                /* Seus estilos */
               </style>
               <!-- Metatags Open Graph para compartilhamento no LinkedIn -->
               <meta property="og:title" content="Veja meus resultados no teste de nivelamento" />
               <meta property="og:description" content="Compartilhe seu resultado do teste de nivelamento!" />
-              <meta property="og:url" content="${window.location.href}" />
+              <meta property="og:url" content="${window.location.href}" /> <!-- Defina a URL correta aqui -->
               <meta property="og:type" content="website" />
               <meta property="og:image" content="https://cdn.wizard.com.br/wp-content/uploads/2020/10/12201330/teste-de-ingles-wizard.png" />
             </head>
