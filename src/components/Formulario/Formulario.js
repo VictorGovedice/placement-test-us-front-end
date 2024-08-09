@@ -31,7 +31,7 @@ function App() {
               <style>
                 body {
                   font-family: Arial, sans-serif;
-                  background-color: #f5f5f5;
+                  background-color: black;
                   color: #333;
                   padding: 20px;
                 }
@@ -112,11 +112,13 @@ function App() {
               <meta property="og:image" content="https://cdn.wizard.com.br/wp-content/uploads/2020/10/12201330/teste-de-ingles-wizard.png" />
             </head>
             <body>
-              <div class="logo">
+            <div>
+              <div class="logo" style="    justify-content: center; display:flex;">
                 <img src="https://alumni.org.br/wp-content/uploads/2024/05/alumni_white.svg" alt="Alumni Logo" />
                 <img src="https://alumni.org.br/wp-content/uploads/2024/05/logoConsulado.png" alt="Consulado Logo" />
               </div>
-              <p>Realização do teste de nivelamento: ${nomeCompleto}</p>
+            </div>
+              <p style="color: white;">Realização do teste de nivelamento: ${nomeCompleto}</p>
               <div class="iframe-container">
                 ${iframeHtml}
               </div>
