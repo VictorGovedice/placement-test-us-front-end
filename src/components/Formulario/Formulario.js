@@ -37,10 +37,9 @@ function App() {
                 .logo {
                   display: flex;
                   justify-content: center;
-                  margin: 20px 0;
                 }
                 .logo img {
-                  margin: 0 10px;
+                  margin: 0 5px;
                 }
                 .iframe-container {
                   margin: 20px 0;
